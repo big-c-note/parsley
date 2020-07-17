@@ -1,0 +1,8 @@
+.mypy_cache
+research
+.DS_Store
+InferSent
+fastText
+encoder
+*_data
+__pycache__
