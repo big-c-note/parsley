@@ -12,7 +12,7 @@ COPY . /parsley
 RUN pip install -e .
 # Setup tests.
 RUN pip install pytest-cov
-ENV CC_TEST_REPORTER_ID=${{ secrets.CC_TEST_REPORTER_ID }}
+ENV CC_TEST_REPORTER_ID=96b5ee74eac4b28ada05266f7b2353cb5306b28f221c9de539e7dd7a013be188
 RUN curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter 
 RUN chmod +x ./cc-test-reporter
 RUN ./cc-test-reporter before-build
