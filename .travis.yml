@@ -14,7 +14,7 @@ before_script:
 
 # command to run test script.
 script:
-  - docker run -ti parsleytest pytest test -v --cov-report term --cov-report xml --cov=/parsley/parsley
+  - docker run -ti parsleytest pytest tests -v --cov-report term --cov-report xml --cov=/parsley/parsley
   - MOST_RECENT_IMAGE=$(docker ps -a --format "{{.Image}}" | head -1)
 
 # Code to run after the test script.
