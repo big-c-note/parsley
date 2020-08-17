@@ -6,3 +6,4 @@ fastText
 encoder
 *_data
 __pycache__
+*egg-info
