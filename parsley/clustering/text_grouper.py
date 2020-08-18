@@ -115,30 +115,7 @@ class TextGrouper:
     def _prep_data(self):
         """Preapare the data for analysis."""
         self._data['Cluster'] = self._clusters
-        total_by_cluster = self._data.groupby('Cluster')['Volume'].sum()\
-            .reset_index()
-        self._data = pd.merge(
-            self._data,
-            total_by_cluster,
-            how="left",
-            on="Cluster",
-            suffixes=('', ' Total')
-        )
-        labels = self._data.sort_values(by='Volume', ascending=False)\
-            .drop_duplicates(
-                subset=['Cluster'],
-                keep='first'
-        )[['Cluster', 'Keyword']]
-        labels.columns = ['Cluster', 'Label']
-        self._data = pd.merge(
-            self._data,
-            labels,
-            how="left",
-            on="Cluster"
-        ).sort_values(
-            by=['Volume Total', 'Cluster', 'Volume'],
-            ascending=[False, True, False]
-        )
+        self._data.sort_values(by='Cluster')
 
     def _dump_data(self):
         """Dump the new data."""

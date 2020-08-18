@@ -31,24 +31,17 @@ log = logging.getLogger("parsley.clean.runner")
     "--text_column",
     help="The name of the column that contains the text to cluster."
 )
-@click.option(
-    "--weight_column",
-    help="The name of the column that contains the weight."
-)
 def clean_data(
     data_path: str,
     save_path: str,
     text_column: str,
-    weight_column: str
 ):
     """Clean the raw data. Only supporting Ahrefs data right now with  Search
     Volume as the weight."""
     log.info("Cleaning data.")
-    cols = [text_column, weight_column]
+    cols = [text_column]
     ds = pd.read_csv(data_path)
-    data = ds[cols].dropna(subset=[text_column]).\
-        sort_values(by=[text_column, weight_column], ascending=False).\
-        drop_duplicates(keep='first')
+    data = ds[cols].dropna(subset=[text_column])
     data.to_csv(save_path, index=False)
     log.info("Data clean.")
 
