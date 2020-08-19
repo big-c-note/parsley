@@ -13,7 +13,7 @@ import logging
 import pandas as pd
 import click
 
-log = logging.getLogger("parsley.clean.runner")
+log = logging.getLogger(__name__)
 
 
 @click.command()
