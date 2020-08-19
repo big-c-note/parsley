@@ -1,7 +1,6 @@
 """Usage: parsley clean [OPTIONS]
 
-  Clean the raw data. Only supporting Ahrefs data right now with  Search
-  Volume as the weight.
+  Clean the raw data. Drops all other columns but the text column.
 
 Options:
   --data_path TEXT      Path to the raw data.
@@ -9,7 +8,6 @@ Options:
   --text_column TEXT    The name of the column that contains the text to
                         cluster.
 
-  --weight_column TEXT  The name of the column that contains the weight.
   --help                Show this message and exit."""
 import logging
 import pandas as pd
